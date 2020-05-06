@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { isBuffer } from 'util';
 
 @Injectable({
   providedIn: 'root'
@@ -10,11 +9,20 @@ export class HardcodedAuthenticationService {
 
 
   authenticate(username, password) {
+    // console.log('before ' + this.isUserLoggedIn());
     if(username === 'rverma510' && password === 'dummy') {
+      sessionStorage.setItem('authenticatedUser', username);
+      // console.log('after ' + this.isUserLoggedIn());
       return true;
     }
     else {
+      // console.log('after ' + this.isUserLoggedIn());
       return false;
     }
+  }
+
+  isUserLoggedIn() {
+    let user = sessionStorage.getItem('authenticatedUser');
+    return !(user === null)
   }
 }
