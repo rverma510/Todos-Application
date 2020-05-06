@@ -2,20 +2,26 @@
     <thead>
         <tr>
             <th>
-                id
+                Description
             </th>
             <th>
-                description
+                Target Date
+            </th>
+            <th>
+                Is Completed?
             </th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let todo of todos">
             <td>
-                {{todo.id}}
+                {{todo.description}}
             </td>
             <td>
-                {{todo.description}}
+                {{todo.targetDate | date}}
+            </td>
+            <td>
+                {{todo.done}}
             </td>
         </tr>
     </tbody>
