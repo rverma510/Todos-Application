@@ -1,4 +1,4 @@
-package com.example.restfulwebservices.controller;
+package com.example.restfulwebservices.helloworld;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,8 +16,8 @@ public class HelloWorldController {
 
     @RequestMapping(value = "/hello-world-bean")
     public HelloWorldBean helloWorldBean(){
-        throw new RuntimeException("Something Went Wrong");
-//        return new HelloWorldBean("Hello World Bean");
+//        throw new RuntimeException("Something Went Wrong");
+        return new HelloWorldBean("Hello World Bean");
     }
 
     @RequestMapping(value = "/hello-world-bean/{name}")
