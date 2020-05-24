@@ -9,12 +9,18 @@ export class TodoDataService {
 
   constructor(private http: HttpClient) { }
 
-  retrieveAllTodos(username: string) {
+  retrieveAllTodos(username) {
     return this.http.get<Todo[]>(`http://localhost:8080/users/${username}/todos`);
+  }
+
+  retrieveTodo(username, id) {
+    return this.http.get<Todo>(`http://localhost:8080/users/${username}/todos/${id}`);
   }
 
   deleteTodo(username, id) {
     return this.http.delete(`http://localhost:8080/users/${username}/todos/${id}`);
   }
+
+
 
 }
